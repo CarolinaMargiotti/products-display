@@ -1,13 +1,8 @@
 import Filters from "./Filters";
+import { getFilters } from "../../hooks";
 
 function ProductTable() {
-	const categories = [
-		{
-			id: 1,
-			title: "Rexona",
-			quantity: 3,
-		},
-	];
+	const categories = Object.values(getFilters());
 
 	return (
 		<div className="row-start-2">

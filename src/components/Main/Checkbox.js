@@ -2,13 +2,14 @@ function Checkbox(props) {
 	return (
 		<div className="flex">
 			<input
-				id="categoryCheckbox"
+				id={`categoryCheckbox${props.id}`}
 				type="checkbox"
-				name="category"
+				name={`categoryCheckbox${props.id}`}
 				className="opacity-0 absolute"
 				value={props.value}
+				onChange={(e) => props.handleChange(props.id)}
 			></input>
-			<label for="categoryCheckbox">
+			<label htmlFor={`categoryCheckbox${props.id}`}>
 				<div className="ml-8 select-none">{props.text}</div>
 			</label>
 		</div>
