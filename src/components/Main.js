@@ -1,9 +1,13 @@
 import SearchBar from "./Main/SearchBar";
 
 function Main() {
+	const handleSearch = (searchText) => {
+		console.log(searchText);
+	};
+
 	return (
-		<main class="grid grid-cols-5">
-			<SearchBar />
+		<main className="grid grid-cols-5">
+			<SearchBar handleSearch={handleSearch} />
 		</main>
 	);
 }
