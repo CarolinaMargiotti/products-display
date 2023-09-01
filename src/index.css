@@ -24,3 +24,24 @@ code {
 .hoverPulsate:hover {
 	transform: scale(120%);
 }
+
+[type="checkbox"] + label::before {
+	content: "";
+	position: absolute;
+	width: 1.5rem;
+	height: 1.5rem;
+	line-height: 1;
+	text-align: center;
+	border: 2px solid rgb(20 184 166);
+	border-radius: 4px;
+	transition: all 0.4s;
+}
+
+[type="checkbox"]:not(:checked) + label::before {
+	content: "";
+}
+
+[type="checkbox"]:checked + label::before {
+	content: "✔";
+	box-shadow: inset 0rem 0rem 0px 1rem rgb(20 184 166);
+}
