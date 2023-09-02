@@ -1,15 +1,24 @@
+import { useState } from "react";
 import Checkbox from "./Checkbox";
 
 function Filters(props) {
-	let checkedFilters = [];
+	const [checkedFilters, setCheckedFilters] = useState([]);
+
+	const categories = props.categories;
 
 	const handleChecked = (checkedId) => {
-		if (checkedFilters.includes(checkedId)) {
-			const idToRemove = checkedFilters.indexOf(checkedId);
-			checkedFilters.splice(idToRemove, 1);
-			return;
+		let filtersCheck = checkedFilters;
+
+		if (filtersCheck.includes(checkedId)) {
+			console.log("remover array");
+			const idToRemove = filtersCheck.indexOf(checkedId);
+			filtersCheck.splice(idToRemove, 1);
+		} else {
+			filtersCheck.push(checkedId);
 		}
-		checkedFilters.push(checkedId);
+
+		setCheckedFilters(filtersCheck);
+		props.handleFilters(checkedFilters);
 	};
 
 	return (
@@ -17,7 +26,7 @@ function Filters(props) {
 			<span>Filtros</span>
 			<div className="border-b-2 border-blue-950 mt-2"></div>
 			<form className="mt-2 grid gap-2">
-				{props.categories.map((category) => (
+				{categories.map((category) => (
 					<Checkbox
 						key={category.id}
 						id={category.id}
