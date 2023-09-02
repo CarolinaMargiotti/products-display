@@ -4,7 +4,6 @@ import Table from "./Table";
 function ProductTable() {
 	const categories = Object.values(getFilters());
 	const products = getProducts();
-	console.log(products);
 
 	return (
 		<div className="grid-cols-8 row-start-2 col-span-full grid gap-4">
