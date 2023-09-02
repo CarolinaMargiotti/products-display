@@ -45,6 +45,22 @@ code {
 	grid-template-columns: repeat(auto-fit, 20rem);
 }
 
+.gridFiltersTable {
+	grid-template-columns: max-content repeat(4, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 1024px) {
+	.responsiveFilter {
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		height: max-content;
+
+		background-color: gray;
+	}
+}
+
 [type="checkbox"] + label::before {
 	content: "";
 	position: absolute;
