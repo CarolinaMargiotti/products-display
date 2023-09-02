@@ -25,6 +25,10 @@ code {
 	transform: scale(120%);
 }
 
+.gridProducts {
+	grid-template-columns: repeat(auto-fit, 20rem);
+}
+
 [type="checkbox"] + label::before {
 	content: "";
 	position: absolute;
