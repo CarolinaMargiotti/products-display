@@ -32,8 +32,8 @@ function Filters(props) {
 				</button>
 			)}
 			{showFilter && (
-				<div className="responsiveFilter p-5 pb-16 transition-all">
-					<div className="text-blue-950 flex flex-col items-center lg:items-start">
+				<div className="responsiveFilter p-5 lg:p-0 transition-all">
+					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-scroll">
 						<div className="flex justify-between w-full">
 							<span>Filtros</span>
 							<button

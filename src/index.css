@@ -54,10 +54,22 @@ code {
 		position: fixed;
 		width: 100%;
 		bottom: 0;
+		overflow: scroll;
 		left: 0;
-		height: max-content;
+		height: 40vh;
 
 		background-color: gray;
+		animation: moveuP 0.2s ease-in;
+	}
+}
+
+@keyframes moveuP {
+	0% {
+		transform: translateY(125%);
+	}
+
+	100% {
+		transform: translateY(0%);
 	}
 }
 
