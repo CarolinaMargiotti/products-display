@@ -25,6 +25,22 @@ code {
 	transform: scale(120%);
 }
 
+.clearTextButton {
+	animation: rotateAndAppear 0.5s;
+}
+
+@keyframes rotateAndAppear {
+	0% {
+		transform: rotateZ(-90deg);
+		opacity: 0;
+	}
+
+	100% {
+		transform: rotateZ(0deg);
+		opacity: 1;
+	}
+}
+
 .gridProducts {
 	grid-template-columns: repeat(auto-fit, 20rem);
 }

@@ -11,11 +11,19 @@ function SearchBar(props) {
 	};
 
 	return (
-		<div className="w-full border-b-2 border-b-teal-500 border-solid flex transition-all hover:pb-1 ">
+		<div className="w-full border-b-2 text-teal-500 border-b-teal-500 border-solid flex transition-all hover:pb-1 ">
+			{searchText && (
+				<button
+					className="clearTextButton hoverPulsate mr-2"
+					onClick={(e) => setSearchText("")}
+				>
+					×
+				</button>
+			)}
 			<input
 				data-testid="searchInput"
 				value={searchText}
-				className="w-full text-teal-500 placeholder-teal-500 outline-none focus:outline-none"
+				className="w-full  placeholder-teal-500 outline-none focus:outline-none"
 				placeholder="BUSQUE AQUI "
 				onChange={(e) => setSearchText(e.target.value)}
 				onKeyDown={(e) => keyDownVerification(e)}
