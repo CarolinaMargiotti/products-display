@@ -10,7 +10,6 @@ function Filters(props) {
 		let filtersCheck = checkedFilters;
 
 		if (filtersCheck.includes(checkedId)) {
-			console.log("remover array");
 			const idToRemove = filtersCheck.indexOf(checkedId);
 			filtersCheck.splice(idToRemove, 1);
 		} else {

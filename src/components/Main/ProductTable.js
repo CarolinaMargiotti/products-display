@@ -1,12 +1,42 @@
 import Filters from "./Filters";
 import { getFilters, getProducts } from "../../hooks";
 import Table from "./Table";
-import { useState } from "react";
-function ProductTable() {
+import { useEffect, useState } from "react";
+function ProductTable(props) {
 	const categories = Object.values(getFilters());
 	const [products, setProducts] = useState(getProducts());
+	const [filters, setFilters] = useState([]);
 
-	const handleFilters = (filters) => {
+	useEffect(() => {
+		handleSearch();
+	}, [props]);
+
+	const handleSearch = () => {
+		const searchText = props.searchText.toLowerCase();
+
+		if (!!searchText) {
+			const searchResults = products.filter((item) => {
+				const itemNames = item.name.toLowerCase();
+				return itemNames.includes(searchText);
+			});
+
+			setProducts(searchResults);
+			return;
+		}
+
+		getProductsByFilter();
+	};
+
+	const handleFilters = (selectedFilters) => {
+		if (!selectedFilters) return;
+		setFilters(selectedFilters);
+
+		console.log(selectedFilters, filters);
+		getProductsByFilter();
+	};
+
+	const getProductsByFilter = () => {
+		console.log(filters);
 		if (filters.length <= 0) {
 			setProducts(getProducts());
 			return;
