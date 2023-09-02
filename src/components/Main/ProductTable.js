@@ -12,6 +12,7 @@ function ProductTable(props) {
 	}, [props, filters]);
 
 	const handleProducts = () => {
+		console.log(props.searchText);
 		let items = [];
 
 		items = handleFilters();
@@ -37,7 +38,7 @@ function ProductTable(props) {
 	};
 
 	const handleSearch = (items) => {
-		const searchText = props.searchText.toLowerCase();
+		const searchText = props?.searchText?.toLowerCase();
 
 		if (searchText) {
 			const searchResults = items.filter((item) => {

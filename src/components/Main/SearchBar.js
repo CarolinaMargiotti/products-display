@@ -10,12 +10,17 @@ function SearchBar(props) {
 		}
 	};
 
+	const clearText = () => {
+		setSearchText("");
+		props.handleSearch();
+	};
+
 	return (
 		<div className="w-full border-b-2 text-teal-500 border-b-teal-500 border-solid flex transition-all hover:pb-1 ">
 			{searchText && (
 				<button
 					className="clearTextButton hoverPulsate mr-2"
-					onClick={(e) => setSearchText("")}
+					onClick={(e) => clearText()}
 				>
 					×
 				</button>
