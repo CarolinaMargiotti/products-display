@@ -31,19 +31,18 @@ function ProductTable(props) {
 		if (!selectedFilters) return;
 		setFilters(selectedFilters);
 
-		console.log(selectedFilters, filters);
-		getProductsByFilter();
+		getProductsByFilter(selectedFilters);
 	};
 
-	const getProductsByFilter = () => {
-		console.log(filters);
-		if (filters.length <= 0) {
+	const getProductsByFilter = (selectedFilters) => {
+		const filtersToFilter = selectedFilters || filters;
+		if (filtersToFilter.length <= 0) {
 			setProducts(getProducts());
 			return;
 		}
 
 		let filteredProducts = [];
-		filters.forEach((element) => {
+		filtersToFilter.forEach((element) => {
 			const categoryIdProducts = getFilters()[element].products;
 			filteredProducts.push(...categoryIdProducts);
 		});
