@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Checkbox from "./Checkbox";
-import SquareButton from "./SquareButton";
-import Skeleton from "./Skeleton";
+import Checkbox from "../../Checkbox";
+import SquareButton from "../../SquareButton";
+import Skeleton from "../../Skeleton";
 
 function Filters(props) {
 	const [checkedFilters, setCheckedFilters] = useState([]);

@@ -1,7 +1,8 @@
-import Filters from "./Filters";
-import { getFilters, getProducts } from "../../hooks";
+import Filters from "../Filters";
+import { getFilters, getProducts } from "../../../../hooks";
 import Table from "./Table";
 import { useEffect, useState } from "react";
+
 function ProductTable(props) {
 	let categories = [];
 	const [products, setProducts] = useState([]);
