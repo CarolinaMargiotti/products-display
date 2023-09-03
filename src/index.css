@@ -114,3 +114,67 @@ code {
 	content: "✔";
 	box-shadow: inset 0rem 0rem 0px 1rem rgb(20 184 166);
 }
+
+.logo:hover .firstPartOfLogo {
+	animation: bounceHover 1s ease;
+}
+
+.logo:hover .secondPartOfLogo {
+	animation: bounceHover 1s ease 0.5s;
+}
+
+.firstPartOfLogo {
+	animation: bounceAppear 1s ease;
+}
+
+.secondPartOfLogo {
+	animation: bounceAppear 1s ease 0.5s;
+}
+
+@keyframes bounceHover {
+	0% {
+		transform: translateY(0);
+	}
+	10% {
+		transform: translateY(0);
+	}
+	30% {
+		transform: translateY(-25px);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	58% {
+		transform: translateY(-7px);
+	}
+	65% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes bounceAppear {
+	0% {
+		transform: scale(1, 1) translateY(0);
+	}
+	10% {
+		transform: scale(1.02, 0.9) translateY(0);
+	}
+	30% {
+		transform: scale(0.9, 1.1) translateY(-25px);
+	}
+	50% {
+		transform: scale(1.02, 0.95) translateY(0);
+	}
+	58% {
+		transform: scale(1, 1) translateY(-7px);
+	}
+	65% {
+		transform: scale(1, 1) translateY(0);
+	}
+	100% {
+		transform: scale(1, 1) translateY(0);
+	}
+}
