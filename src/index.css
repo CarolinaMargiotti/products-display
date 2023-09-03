@@ -73,8 +73,10 @@ code {
 	}
 }
 
-.moveDownElement {
-	animation: moveDown 0.2s ease-out;
+@media screen and (max-width: 1024px) {
+	.moveDownElement {
+		animation: moveDown 0.2s ease-out;
+	}
 }
 
 @keyframes moveDown {
