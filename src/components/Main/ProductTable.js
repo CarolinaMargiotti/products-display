@@ -56,7 +56,7 @@ function ProductTable(props) {
 	};
 
 	return (
-		<div className="gridFiltersTable items-start row-start-2 col-span-full grid gap-4">
+		<div className="gridFiltersTable transition-all items-start row-start-2 col-span-full grid gap-4">
 			<Filters categories={categories} handleFilters={setNewFilters} />
 			<Table products={products} />
 		</div>

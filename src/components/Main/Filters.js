@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
+import SquareButton from "./SquareButton";
 
 function Filters(props) {
 	const [checkedFilters, setCheckedFilters] = useState([]);
@@ -24,24 +25,22 @@ function Filters(props) {
 	return (
 		<div>
 			{!showFilter && (
-				<button
-					className="text-teal-500 border-2 border-teal-500 rounded leading-none pb-1 px-2"
-					onClick={(e) => setShowFilter(true)}
-				>
-					&raquo;
-				</button>
+				<div className="mt-1">
+					<SquareButton
+						handleClick={(e) => setShowFilter(true)}
+						text="&raquo;"
+					/>
+				</div>
 			)}
 			{showFilter && (
 				<div className="responsiveFilter p-5 lg:p-0 transition-all">
 					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-scroll">
 						<div className="flex justify-between w-full">
 							<span>Filtros</span>
-							<button
-								className="text-teal-500 border-2 border-teal-500 rounded leading-none pb-1 px-2"
-								onClick={(e) => setShowFilter(false)}
-							>
-								&laquo;
-							</button>
+							<SquareButton
+								handleClick={(e) => setShowFilter(false)}
+								text="&laquo;"
+							/>
 						</div>
 						<div
 							className="border-b-2 border-blue-950 mt-2 mb-2 lg:mb-0"

@@ -56,7 +56,7 @@ code {
 		bottom: 0;
 		overflow: scroll;
 		left: 0;
-		height: 40vh;
+		height: 35vh;
 
 		background-color: gray;
 		animation: moveuP 0.2s ease-in;
