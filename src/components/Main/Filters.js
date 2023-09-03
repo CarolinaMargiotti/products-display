@@ -45,7 +45,7 @@ function Filters(props) {
 					className="responsiveFilter p-5 lg:p-0 transition-all"
 					id="modalFilter"
 				>
-					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-scroll">
+					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-hidden">
 						<div className="flex justify-between w-full">
 							<span>Filtros</span>
 							<SquareButton
