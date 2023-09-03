@@ -178,3 +178,26 @@ code {
 		transform: scale(1, 1) translateY(0);
 	}
 }
+
+.skeleton {
+	background: linear-gradient(
+		0.25turn,
+		rgba(20, 184, 166, 0.5),
+		white,
+		rgba(20, 184, 166, 0.5)
+	);
+	animation: grayLinearGradient 2s infinite;
+	background-size: 400%;
+}
+
+@keyframes grayLinearGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
