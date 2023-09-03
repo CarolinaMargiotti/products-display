@@ -4,7 +4,7 @@ function Table(props) {
 	const products = props.products;
 
 	return (
-		<section className="col-start-2 col-span-full">
+		<section className="lg:col-start-2 col-start-1 col-span-full">
 			<span className="text-blue-950">{products.length} resultados</span>
 			<div className="border-b-2 border-blue-950 mt-4"></div>
 			<div
