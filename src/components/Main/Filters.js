@@ -46,7 +46,7 @@ function Filters(props) {
 							className="border-b-2 border-blue-950 mt-2 mb-2 lg:mb-0"
 							style={{ height: "2px", width: "100%" }}
 						></div>
-						<form className="mt-2 grid gap-2">
+						<form className="mt-2 grid gap-7 lg:gap-2">
 							{categories.map((category) => (
 								<Checkbox
 									key={category.id}
