@@ -22,6 +22,14 @@ function Filters(props) {
 		props.handleFilters(checkedFilters);
 	};
 
+	const closeFilter = () => {
+		const modalFilter = document.getElementById("modalFilter");
+		modalFilter.classList.add("moveDownElement");
+		setTimeout(() => {
+			setShowFilter(false);
+		}, 190);
+	};
+
 	return (
 		<div>
 			{!showFilter && (
@@ -33,12 +41,15 @@ function Filters(props) {
 				</div>
 			)}
 			{showFilter && (
-				<div className="responsiveFilter p-5 lg:p-0 transition-all">
+				<div
+					className="responsiveFilter p-5 lg:p-0 transition-all"
+					id="modalFilter"
+				>
 					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-scroll">
 						<div className="flex justify-between w-full">
 							<span>Filtros</span>
 							<SquareButton
-								handleClick={(e) => setShowFilter(false)}
+								handleClick={(e) => closeFilter()}
 								text="&laquo;"
 							/>
 						</div>

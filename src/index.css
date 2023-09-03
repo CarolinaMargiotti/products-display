@@ -59,17 +59,31 @@ code {
 		height: 35vh;
 
 		background-color: gray;
-		animation: moveuP 0.2s ease-in;
+		animation: moveUp 0.2s ease-in;
 	}
 }
 
-@keyframes moveuP {
+@keyframes moveUp {
 	0% {
 		transform: translateY(125%);
 	}
 
 	100% {
 		transform: translateY(0%);
+	}
+}
+
+.moveDownElement {
+	animation: moveDown 0.2s ease-out;
+}
+
+@keyframes moveDown {
+	0% {
+		transform: translateY(0%);
+	}
+
+	100% {
+		transform: translateY(125%);
 	}
 }
 
