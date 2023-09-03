@@ -19,6 +19,16 @@ function ProductTable(props) {
 	};
 	getCategories();
 
+	const getCategories = async () => {
+		try {
+			const filters = getFilters();
+			categories = Object.values(filters);
+		} catch (error) {
+			return [];
+		}
+	};
+	getCategories();
+
 	const getOriginalProducts = async () => {
 		try {
 			return getProducts();
