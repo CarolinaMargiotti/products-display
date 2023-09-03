@@ -24,7 +24,7 @@ const getFilters = () => {
 	return filters;
 };
 
-const getProducts = () => {
+const getProducts = async () => {
 	return data.data.nodes;
 };
 

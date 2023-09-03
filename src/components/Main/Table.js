@@ -1,6 +1,13 @@
+import { useEffect, useState } from "react";
 import ProductTableItem from "./ProductTableItem";
+import ProductTableItemSkeleton from "./ProductTableItemSkeleton";
 
 function Table(props) {
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		setIsLoading(props.isLoading);
+	}, [props]);
 	const products = props.products;
 
 	return (
@@ -14,9 +21,15 @@ function Table(props) {
 						products.length === 1 ? "start" : "space-around",
 				}}
 			>
-				{products.map((product) => (
-					<ProductTableItem product={product} />
-				))}
+				{isLoading &&
+					[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+						<ProductTableItemSkeleton />
+					))}
+				{products.length &&
+					!isLoading &&
+					products.map((product) => (
+						<ProductTableItem product={product} />
+					))}
 			</div>
 		</section>
 	);

@@ -4,28 +4,34 @@ import Table from "./Table";
 import { useEffect, useState } from "react";
 function ProductTable(props) {
 	const categories = Object.values(getFilters());
-	const [products, setProducts] = useState(getProducts());
+	const [products, setProducts] = useState([]);
 	const [filters, setFilters] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+
+	const getOriginalProducts = async () => {
+		return getProducts();
+	};
 
 	useEffect(() => {
 		handleProducts();
 	}, [props, filters]);
 
-	const handleProducts = () => {
-		console.log(props.searchText);
+	const handleProducts = async () => {
+		setIsLoading(true);
 		let items = [];
 
-		items = handleFilters();
+		items = await handleFilters();
 		items = handleSearch(items);
 		setProducts(items);
+		setIsLoading(false);
 	};
 
-	const handleFilters = () => {
+	const handleFilters = async () => {
 		if (!filters) return;
 		setFilters(filters);
 
 		if (filters.length <= 0) {
-			return getProducts();
+			return await getOriginalProducts();
 		}
 
 		let filteredProducts = [];
@@ -57,8 +63,12 @@ function ProductTable(props) {
 
 	return (
 		<div className="gridFiltersTable items-start row-start-2 col-span-full grid gap-4">
-			<Filters categories={categories} handleFilters={setNewFilters} />
-			<Table products={products} />
+			<Filters
+				categories={categories}
+				handleFilters={setNewFilters}
+				isLoading={isLoading}
+			/>
+			<Table products={products} isLoading={isLoading} />
 		</div>
 	);
 }
