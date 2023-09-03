@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
+import SquareButton from "./SquareButton";
 
 function Filters(props) {
 	const [checkedFilters, setCheckedFilters] = useState([]);
+	const [showFilter, setShowFilter] = useState(true);
 
 	const categories = props.categories;
 
@@ -20,21 +22,52 @@ function Filters(props) {
 		props.handleFilters(checkedFilters);
 	};
 
+	const closeFilter = () => {
+		const modalFilter = document.getElementById("modalFilter");
+		modalFilter.classList.add("moveDownElement");
+		setTimeout(() => {
+			setShowFilter(false);
+		}, 180);
+	};
+
 	return (
-		<div className="text-blue-950 flex flex-col">
-			<span>Filtros</span>
-			<div className="border-b-2 border-blue-950 mt-2"></div>
-			<form className="mt-2 grid gap-2">
-				{categories.map((category) => (
-					<Checkbox
-						key={category.id}
-						id={category.id}
-						value={category.id}
-						text={`${category.name} (${category.quantity})`}
-						handleChange={handleChecked}
+		<div>
+			{!showFilter && (
+				<div className="mt-1">
+					<SquareButton
+						handleClick={(e) => setShowFilter(true)}
+						text="&raquo;"
 					/>
-				))}
-			</form>
+				</div>
+			)}
+			{showFilter && (
+				<div className="responsiveFilter p-5 lg:p-0" id="modalFilter">
+					<div className="text-blue-950 flex flex-col items-center lg:items-start  overflow-hidden">
+						<div className="flex justify-between w-full">
+							<span>Filtros</span>
+							<SquareButton
+								handleClick={(e) => closeFilter()}
+								text="&laquo;"
+							/>
+						</div>
+						<div
+							className="border-b-2 border-blue-950 mt-2 mb-2 lg:mb-0"
+							style={{ height: "2px", width: "100%" }}
+						></div>
+						<form className="mt-2 grid gap-7 lg:gap-2">
+							{categories.map((category) => (
+								<Checkbox
+									key={category.id}
+									id={category.id}
+									value={category.id}
+									text={`${category.name} (${category.quantity})`}
+									handleChange={handleChecked}
+								/>
+							))}
+						</form>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

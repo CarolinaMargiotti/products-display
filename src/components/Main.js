@@ -10,7 +10,7 @@ function Main() {
 	};
 
 	return (
-		<main className="grid grid-cols-5  gap-10">
+		<main className="grid grid-cols-5 gap-1 lg:gap-10">
 			<SearchBar handleSearch={handleSearch} />
 			<ProductTable searchText={searchText} />
 		</main>
