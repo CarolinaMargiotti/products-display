@@ -1,14 +1,12 @@
+import Skeleton from "./Skeleton";
+
 function ProductTableItemSkeleton() {
 	return (
 		<div>
-			<div
-				className="skeleton"
-				style={{ height: "15rem", width: "20rem" }}
-			></div>
-			<div
-				className="skeleton mt-4"
-				style={{ height: "2rem", width: "20rem" }}
-			></div>
+			<Skeleton width="20rem" height="15rem" />
+			<div className="mt-2">
+				<Skeleton width="20rem" height="2rem" />
+			</div>
 		</div>
 	);
 }

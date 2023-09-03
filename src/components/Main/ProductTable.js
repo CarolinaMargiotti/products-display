@@ -3,13 +3,27 @@ import { getFilters, getProducts } from "../../hooks";
 import Table from "./Table";
 import { useEffect, useState } from "react";
 function ProductTable(props) {
-	const categories = Object.values(getFilters());
+	let categories = [];
 	const [products, setProducts] = useState([]);
 	const [filters, setFilters] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const getCategories = async () => {
+		try {
+			const filters = getFilters();
+			categories = Object.values(filters);
+		} catch (error) {
+			return [];
+		}
+	};
+	getCategories();
+
 	const getOriginalProducts = async () => {
-		return getProducts();
+		try {
+			return getProducts();
+		} catch (error) {
+			return [];
+		}
 	};
 
 	useEffect(() => {
@@ -23,7 +37,9 @@ function ProductTable(props) {
 		items = await handleFilters();
 		items = handleSearch(items);
 		setProducts(items);
-		setIsLoading(false);
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 300);
 	};
 
 	const handleFilters = async () => {

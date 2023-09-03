@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Checkbox from "./Checkbox";
 import SquareButton from "./SquareButton";
+import Skeleton from "./Skeleton";
 
 function Filters(props) {
 	const [checkedFilters, setCheckedFilters] = useState([]);
 	const [showFilter, setShowFilter] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		setIsLoading(props.isLoading);
+	}, [props]);
 
 	const categories = props.categories;
 
@@ -55,15 +61,19 @@ function Filters(props) {
 							style={{ height: "2px", width: "100%" }}
 						></div>
 						<form className="mt-2 grid gap-7 lg:gap-2">
-							{categories.map((category) => (
-								<Checkbox
-									key={category.id}
-									id={category.id}
-									value={category.id}
-									text={`${category.name} (${category.quantity})`}
-									handleChange={handleChecked}
-								/>
-							))}
+							{isLoading && (
+								<Skeleton width="7rem" height="1rem" />
+							)}
+							{!isLoading &&
+								categories.map((category) => (
+									<Checkbox
+										key={category.id}
+										id={category.id}
+										value={category.id}
+										text={`${category.name} (${category.quantity})`}
+										handleChange={handleChecked}
+									/>
+								))}
 						</form>
 					</div>
 				</div>
