@@ -19,7 +19,7 @@ function SearchBar(props) {
 		<div className="w-full col-span-full sm:col-span-3 lg:col-span-2 xl:col-span-1 border-b-2 text-teal-500 border-b-teal-500 border-solid flex transition-all hover:pb-1 mb-7 lg:mb-0 ">
 			{searchText && (
 				<button
-					className="clearTextButton hoverPulsate mr-2"
+					className="clearTextButton hoverPulsate mr-2 text-4xl lg:text-base"
 					onClick={(e) => clearText()}
 				>
 					×
